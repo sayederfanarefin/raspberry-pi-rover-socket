@@ -1,11 +1,20 @@
 language: java
-jdk: oraclejdk8
-
+jdk:
+  - openjdk11
+  
 sudo: required
  
 services:
   - docker
-  
+
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+
 script:
-- ./mvnw clean install -B
+  - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
