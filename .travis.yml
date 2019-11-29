@@ -9,5 +9,6 @@ services:
 
 
 script:
+  - maven clean
   - mvn install
 

@@ -9,11 +9,11 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.arefin.xyz</groupId>
-	<artifactId>Rover</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>Raspberry-Pi-Rover</artifactId>
+	<version>0.0.1</version>
 	<packaging>war</packaging>
 	<name>rover</name>
-	<description>Rover Main Board</description>
+	<description>Raspberry Pi Rover main board program</description>
 
 	<properties>
 		<java.version>1.8</java.version>
