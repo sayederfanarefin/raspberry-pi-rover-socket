@@ -7,7 +7,6 @@ sudo: required
 services:
   - docker
 
-
 script:
   - maven clean
   - mvn install
