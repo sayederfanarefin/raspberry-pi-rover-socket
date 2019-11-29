@@ -12,7 +12,7 @@ cache:
   - $HOME/.m2
 
 env:
-  - MAVEN_VERSION=4.0.0
+  - MAVEN_VERSION=3.6.3
 install:
   - "mvn -N io.takari:maven:wrapper -Dmaven=${MAVEN_VERSION}"
   - "./mvnw --show-version --errors --batch-mode test-compile dependency:go-offline"
