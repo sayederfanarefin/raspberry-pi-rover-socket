@@ -22,3 +22,5 @@ install:
 script:
   - maven clean
   - mvn install
+  - docker login -u $username -p $password
+  - docker push sayederfanarefin/raspberrypi-rover:latest
