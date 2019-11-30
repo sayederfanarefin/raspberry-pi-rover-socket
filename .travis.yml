@@ -33,7 +33,7 @@ script:
   # - docker buildx use newbuilder
   # - docker buildx inspect --bootstrap
   # - docker buildx ls
-  - docker build --platform linux/arm64,linux/amd64 --push -t abcd .
+  - docker buildx --platform linux/arm64,linux/amd64 --push -t abcd .
   # - docker buildx build abcd .
 
 after_script:
