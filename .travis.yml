@@ -27,7 +27,13 @@ before_script:
 script:
   - mvn clean
   - mvn install
-  - docker buildx build abcd .
+  - docker buildx create --name newbuilder
+  - docker buildx ls
+  - docker buildx use newbuilder
+  - docker buildx inspect --bootstrap
+  - docker buildx ls
+  - docker buildx build --platform linux/arm64,linux/amd64 --push -t abcd .
+  # - docker buildx build abcd .
 
 after_script:
   - docker images
