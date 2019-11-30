@@ -32,4 +32,7 @@ sudo systemctl start docker.service
 sudo docker info
 
 
-############################################################### setup IRC to enable notificaation from travis ci
+############################################################### pull watch tower to auto pull latest image from the given repository
+
+docker pull v2tec/watchtower
+docker run v2tec/watchtower
