@@ -3,7 +3,11 @@ jdk:
   - openjdk11
 
 sudo: required
- 
+
+env:
+  global:
+    - IMAGE_NAME=sayederfanarefin/raspberrypi-rover
+
 services:
   - docker
 
@@ -17,11 +21,22 @@ install:
   - "mvn -N io.takari:maven:wrapper -Dmaven=${MAVEN_VERSION}"
   - "./mvnw --show-version --errors --batch-mode test-compile dependency:go-offline"
 
+before_script:
+  - docker pull "$IMAGE_NAME" || true
 
 script:
   - maven clean
   - mvn install
-  - docker build -t sayederfanarefin/raspberrypi-rover .
+  - docker build --pull --cache-from "$IMAGE_NAME" --tag "$IMAGE_NAME" 
+
+after_script:
   - docker images
-  - docker tag raspberrypi-rover sayederfanarefin/raspberrypi-rover:latest
-  - docker push sayederfanarefin/raspberrypi-rover:latest
+
+before_deploy:
+  - docker login -u $username -p $password
+  - docker tag "$IMAGE_NAME" "${IMAGE_NAME}:latest"
+deploy:
+  provider: script
+  script: docker push "${IMAGE_NAME}:latest"
+  on:
+    branch: master
