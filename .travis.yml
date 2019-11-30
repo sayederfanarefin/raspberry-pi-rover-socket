@@ -27,6 +27,7 @@ before_script:
 script:
   - mvn clean
   - mvn install
+  - export DOCKER_CLI_EXPERIMENTAL=enabled
   - docker buildx create --name newbuilder
   - docker buildx ls
   - docker buildx use newbuilder
