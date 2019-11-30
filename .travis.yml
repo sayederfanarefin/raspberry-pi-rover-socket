@@ -34,9 +34,9 @@ after_script:
 
 before_deploy:
   - docker login -u $username -p $password
-  - docker tag abcd "$IMAGE_NAME:latest"
+  - docker tag abcd sayederfanarefin/raspberrypi-rover:latest
 deploy:
   provider: script
-  script: docker push $IMAGE_NAME:latest
+  script: docker push sayederfanarefin/raspberrypi-rover:latest
   on:
     branch: master
