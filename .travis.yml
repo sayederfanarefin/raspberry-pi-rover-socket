@@ -22,6 +22,6 @@ script:
   - maven clean
   - mvn install
   - docker login -u $username -p $password
-  = docker build -t sayederfanarefin/raspberrypi-rover
+  - docker build -t sayederfanarefin/raspberrypi-rover
   - docker tag . sayederfanarefin/raspberrypi-rover:latest
   - docker push sayederfanarefin/raspberrypi-rover:latest
