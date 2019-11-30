@@ -27,7 +27,7 @@ before_script:
 script:
   - mvn clean
   - mvn install
-  - docker buildx build -t abcd .
+  - docker buildx build abcd .
 
 after_script:
   - docker images
