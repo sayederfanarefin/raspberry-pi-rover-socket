@@ -27,7 +27,7 @@ before_script:
 script:
   - mvn clean
   - mvn install
-  - docker build --pull --cache-from $IMAGE_NAME --tag $IMAGE_NAME
+  - docker build --pull --cache-from $IMAGE_NAME
 
 after_script:
   - docker images
