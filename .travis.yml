@@ -27,14 +27,14 @@ before_script:
 script:
   - mvn clean
   - mvn install
-  - docker build -t $IMAGE_NAME .
+  - docker build -t abcd .
 
 after_script:
   - docker images
 
 before_deploy:
   - docker login -u $username -p $password
-  - docker tag "$IMAGE_NAME" "${IMAGE_NAME}:latest"
+  - docker tag abcd "${IMAGE_NAME}:latest"
 deploy:
   provider: script
   script: docker push ${IMAGE_NAME}:latest
