@@ -28,12 +28,12 @@ script:
   - mvn clean
   - mvn install
   - export DOCKER_CLI_EXPERIMENTAL=enabled
-  - docker buildx create --name newbuilder
-  - docker buildx ls
-  - docker buildx use newbuilder
-  - docker buildx inspect --bootstrap
-  - docker buildx ls
-  - docker buildx build --platform linux/arm64,linux/amd64 --push -t abcd .
+  # - docker buildx create --name newbuilder
+  # - docker buildx ls
+  # - docker buildx use newbuilder
+  # - docker buildx inspect --bootstrap
+  # - docker buildx ls
+  - docker build --platform linux/arm64,linux/amd64 --push -t abcd .
   # - docker buildx build abcd .
 
 after_script:
