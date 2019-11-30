@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.security.Principal;
 import java.util.Iterator;
 
-@RestController
+@Controller
 @RequestMapping(value= "/sensors")
 public class SensorReading {
 
