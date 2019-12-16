@@ -7,6 +7,7 @@ sudo: required
 env:
   global:
     - IMAGE_NAME=sayederfanarefin/raspberrypi-rover
+    - DOCKER_CLI_EXPERIMENTAL=enabled
 
 services:
   - docker
@@ -27,7 +28,7 @@ before_script:
 script:
   - mvn clean
   - mvn install
-  - export DOCKER_CLI_EXPERIMENTAL=enabled
+  # - export DOCKER_CLI_EXPERIMENTAL=enabled
   # - docker buildx create --name newbuilder
   # - docker buildx ls
   # - docker buildx use newbuilder
