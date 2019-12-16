@@ -34,8 +34,8 @@ script:
   # - docker buildx use newbuilder
   # - docker buildx inspect --bootstrap
   # - docker buildx ls
-  - docker --config ls
-  - docker buildx build arch arm64 --push -t abcd .
+  # - docker buildx build arch arm64 --push -t abcd .
+  - docker buildx build arch arm64 .
   # - docker buildx build abcd .
 
 after_script:
