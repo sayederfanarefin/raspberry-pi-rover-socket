@@ -35,7 +35,8 @@ script:
   # - docker buildx inspect --bootstrap
   # - docker buildx ls
   # - docker buildx build arch arm64 --push -t abcd .
-  - docker buildx build arch arm64 tag abcd .
+  - docker buildx build arch arm64 .
+  - docker tag abcd .
   # - docker buildx build abcd .
 
 after_script:
