@@ -14,16 +14,21 @@ build:
   script:
     - mvn clean
     - mvn install
-    
+
   only:
     - master
 
-# test:
-#   stage: test
-#   script:
-#     - mvn $MAVEN_CLI_OPTS test
-#   only:
-#     - master
+containerize:
+  stage: containerize
+  services:
+    - name: docker:dind
+      command: ["--experimental"]
+  
+  script:
+    - docker buildx build arch arm64 .
+    - docker tag abcd .
+  only:
+    - master
 
 # deploy:
 #   stage: deploy
