@@ -19,6 +19,7 @@ build:
     - master
 
 containerize:
+  image: docker:latest
   stage: deploy
   services:
     - name: docker:dind
