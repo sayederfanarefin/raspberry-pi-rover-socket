@@ -33,10 +33,10 @@ containerize:
     - apt install docker.io -y
     - systemctl start docker
     - systemctl enable docker
-    - export PATH=$PATH:~/.docker/cli-plugins/docker-buildx
     - echo $'{\n    "experimental": true\n}' | tee /etc/docker/daemon.json
     - service docker restart
     - docker version
+    - export PATH=$PATH:~/.docker/cli-plugins/docker-buildx
     # - apt-get update -y
     # - apt-get upgrade -y
     # --platform linux/amd64,linux/arm64
