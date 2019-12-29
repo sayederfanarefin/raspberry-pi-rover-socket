@@ -29,6 +29,8 @@ containerize:
     # Preparing wget
     - docker version
     - export PATH=$PATH:~/.docker/cli-plugins/docker-buildx
+    - cd ~/.docker/cli-plugins/
+    - ls
     # - apt-get update -y
     # - apt-get upgrade -y
     # --platform linux/amd64,linux/arm64
