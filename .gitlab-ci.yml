@@ -27,7 +27,7 @@ containerize:
   
   script:
     - docker version
-    - docker buildx build .
+    - docker buildx build --platform linux/amd64,linux/arm64 .
     - docker tag abcd .
   only:
     - master
