@@ -25,9 +25,10 @@ install:
 before_script:
   - docker version
   - echo '{"experimental":true}' | sudo tee /etc/docker/daemon.json
+  - echo '{"experimental":true}' | sudo tee /etc/docker/config.json
   - sudo service docker restart
   - docker version
-  - docker pull $IMAGE_NAME || true
+  - docker pull $IMAGE_NAME
 
 script:
   - mvn clean
@@ -39,7 +40,7 @@ script:
   # - docker buildx inspect --bootstrap
   # - docker buildx ls
   # - docker buildx build arch arm64 --push -t abcd .
-  - docker buildx build arch arm64 .
+  - docker buildx build .
   - docker tag abcd .
   # - docker buildx build abcd .
 
