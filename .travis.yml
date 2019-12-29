@@ -18,6 +18,7 @@ cache:
 
 env:
   - MAVEN_VERSION=3.6.3
+  - experimental=true
 install:
   - "mvn -N io.takari:maven:wrapper -Dmaven=${MAVEN_VERSION}"
   - "./mvnw --show-version --errors --batch-mode test-compile dependency:go-offline"
@@ -27,7 +28,7 @@ before_script:
   - echo '{"experimental":true}' | sudo tee /etc/docker/daemon.json
   - sudo service docker restart
   - docker version
-  - docker config ls
+  # - docker config ls
   # - docker pull $IMAGE_NAME
 
 script:
