@@ -27,7 +27,7 @@ containerize:
   
   before_script:
     # Preparing wget
-    - apt-get remove docker docker-engine docker.io
+    # - apt-get remove docker docker-engine docker.io
     - apt-get update -y
     - apt-get upgrade -y
     - apt install docker.io
