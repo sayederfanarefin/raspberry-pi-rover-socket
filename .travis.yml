@@ -28,7 +28,7 @@ before_script:
   - echo '{"experimental":true}' | sudo tee /etc/docker/config.json
   - sudo service docker restart
   - docker version
-  - docker pull $IMAGE_NAME
+  # - docker pull $IMAGE_NAME
 
 script:
   - mvn clean
