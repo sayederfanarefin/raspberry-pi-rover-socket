@@ -19,14 +19,15 @@ build:
     - master
 
 containerize:
-  image: ubuntu:latest
+  image: docker:latest
   stage: deploy
   services:
     - name: docker:dind
-      command: ["--experimental"]
+    - command: ["--experimental"]
   
   script:
-    - docker buildx build arch arm64 .
+    - docker version
+    - docker buildx build .
     - docker tag abcd .
   only:
     - master
