@@ -21,18 +21,22 @@ build:
 containerize:
   image: ubuntu:latest
   stage: deploy
-  services:
-    - name: docker:dind
-      command: ["--experimental"]
+  # services:
+  #   - name: docker:dind
+  #     command: ["--experimental"]
   
   before_script:
     # Preparing wget
+    - sudo apt-get remove docker docker-engine docker.io
+    - apt-get update -y
+    - apt-get upgrade -y
+    - sudo apt install docker.io
+    - sudo systemctl start docker
+    - sudo systemctl enable docker
     - docker version
     - export PATH=$PATH:~/.docker/cli-plugins/docker-buildx
-    - cd ~/.docker/cli-plugins/
-    - ls
-    # - apt-get update -y
-    # - apt-get upgrade -y
+    - apt-get update -y
+    - apt-get upgrade -y
     # --platform linux/amd64,linux/arm64
 
   script:
