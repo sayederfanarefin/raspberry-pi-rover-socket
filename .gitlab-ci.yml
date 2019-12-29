@@ -22,7 +22,7 @@ containerize:
   # image: docker:latest
   stage: deploy
   services:
-    - name: docker:dind
+    - name: docker:18.09.7-dind
       command: ["--experimental"]
   
   before_script:
