@@ -27,12 +27,12 @@ containerize:
   
   before_script:
     # Preparing wget
-    - sudo apt-get remove docker docker-engine docker.io
+    - apt-get remove docker docker-engine docker.io
     - apt-get update -y
     - apt-get upgrade -y
-    - sudo apt install docker.io
-    - sudo systemctl start docker
-    - sudo systemctl enable docker
+    - apt install docker.io
+    - systemctl start docker
+    - systemctl enable docker
     - docker version
     - export PATH=$PATH:~/.docker/cli-plugins/docker-buildx
     - apt-get update -y
