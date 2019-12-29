@@ -21,12 +21,9 @@ build:
 containerize:
   # image: docker:latest
   stage: deploy
-  image: docker:18.09
-  variables:
-    DOCKER_HOST: tcp://docker:2375/
-    DOCKER_DRIVER: overlay2
+  image: docker:18-git
   services:
-    - docker:18.09-dind
+    - docker:18-dind
       command: ["--experimental"]
   
   before_script:
