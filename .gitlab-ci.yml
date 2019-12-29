@@ -31,10 +31,12 @@ containerize:
     - export PATH=$PATH:~/.docker/cli-plugins/docker-buildx
     # - apt-get update -y
     # - apt-get upgrade -y
+    # --platform linux/amd64,linux/arm64
 
   script:
-    - docker buildx build --platform linux/amd64,linux/arm64 .
+    - docker buildx build .
     - docker tag abcd .
+    - docker images
   only:
     - master
 
