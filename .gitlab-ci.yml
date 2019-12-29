@@ -24,7 +24,7 @@ containerize:
   image: docker:18-git
   services:
     - docker:18-dind
-      command: ["--experimental"]
+      # command: ["--experimental"]
   
   before_script:
     - docker version
