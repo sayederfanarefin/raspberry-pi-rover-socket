@@ -33,7 +33,7 @@ containerize:
     - apt install docker.io -y
     - systemctl start docker
     - systemctl enable docker
-    - echo $'{\n    "experimental": true\n}' | tee /etc/docker/daemon.json
+    - 'echo $\'{\n    "experimental": true\n}\' | tee /etc/docker/daemon.json'
     - service docker restart
     - docker version
     - export PATH=$PATH:~/.docker/cli-plugins/docker-buildx
