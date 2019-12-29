@@ -23,7 +23,7 @@ containerize:
   stage: deploy
   services:
     - name: docker:dind
-    - command: ["--experimental"]
+      command: ["--experimental"]
   
   script:
     - docker version
