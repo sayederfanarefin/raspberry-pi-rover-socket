@@ -21,21 +21,21 @@ build:
 containerize:
   image: ubuntu:latest
   stage: deploy
-  # services:
-  #   - name: docker:dind
-  #     command: ["--experimental"]
+  services:
+    - name: docker:dind
+      command: ["--experimental"]
   
   before_script:
     # Preparing wget
     # - apt-get remove docker docker-engine docker.io
     - apt-get update -y
     - apt-get upgrade -y
-    - apt install docker.io -y
-    - apt-get install systemd -y
-    - systemctl start docker
-    - systemctl enable docker
-    - 'echo {\n    "experimental": true\n} | tee /etc/docker/daemon.json'
-    - service docker restart
+    # - apt install docker.io -y
+    # - apt-get install systemd -y
+    # - systemctl start docker
+    # - systemctl enable docker
+    # - 'echo {\n    "experimental": true\n} | tee /etc/docker/daemon.json'
+    # - service docker restart
     - docker version
     - export PATH=$PATH:~/.docker/cli-plugins/docker-buildx
     # - apt-get update -y
