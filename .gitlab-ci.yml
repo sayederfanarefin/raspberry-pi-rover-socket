@@ -1,9 +1,5 @@
 image: maven:latest
 
-# variables:
-#   MAVEN_CLI_OPTS: "-s .m2/settings.xml --batch-mode"
-#   MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
-
 cache:
   paths:
     - .m2/repository/
@@ -19,16 +15,16 @@ build:
     - master
 
 containerize:
-  # image: docker:latest
+  
   stage: deploy
-  image: docker:18-git
+  image: ubuntu:latest
   services:
     - docker:18-dind
-      # command: ["--experimental"]
+      command: ["--experimental"]
   
   before_script:
     - docker version
-    - export PATH=$PATH:~/.docker/cli-plugins/docker-buildx
+    # - export PATH=$PATH:~/.docker/cli-plugins/docker-buildx
 
   script:
     - docker buildx build .

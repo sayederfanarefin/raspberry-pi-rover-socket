@@ -23,6 +23,10 @@ install:
   - "./mvnw --show-version --errors --batch-mode test-compile dependency:go-offline"
 
 before_script:
+  - docker version
+  - echo '{"experimental":true}' | sudo tee /etc/docker/daemon.json
+  - sudo service docker restart
+  - docker version
   - docker pull $IMAGE_NAME || true
 
 script:
