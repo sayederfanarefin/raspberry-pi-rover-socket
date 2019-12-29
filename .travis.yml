@@ -25,9 +25,9 @@ install:
 before_script:
   - docker version
   - echo '{"experimental":true}' | sudo tee /etc/docker/daemon.json
-  - echo '{"experimental":true}' | sudo tee /etc/docker/config.json
   - sudo service docker restart
   - docker version
+  - docker config ls
   # - docker pull $IMAGE_NAME
 
 script:
